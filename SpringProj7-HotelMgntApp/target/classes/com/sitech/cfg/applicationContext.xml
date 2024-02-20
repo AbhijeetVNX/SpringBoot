@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+	<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="syetem"></property>
+		<property name="password" value="tiger"></property>
+		
+	</bean>
+	
+	<bean id="dao" class="com.sitech.dao.GuestDAOImpl">
+		<constructor-arg name="ds" ref="dmds"/>
+	</bean>
+	
+	<bean id="gservice" class="com.sitech.service.GuestServiceImpl">
+		<constructor-arg name="dao" ref="gdao"/>
+	</bean>
+	
+	<bean id="gcontroller" class="com.sitech.controller.">
+		<constructor-arg name="service" ref="gservice
+		"/>
+	</bean>
+	
+	
+</beans>

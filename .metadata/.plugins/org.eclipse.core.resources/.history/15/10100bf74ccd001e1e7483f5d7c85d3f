@@ -1,0 +1,19 @@
+package com.sitech.test;
+
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+
+public class FactoryMethodTest {
+	
+	public static void main(String[] args) {
+		
+		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+		reader.loadBeanDefinitions("com/sitech/cfg/applicationContext.xml");
+		
+		Class c = factory.getBean("c1",Class.class");
+		System.out.println("c object data"+c.toString()+"\t"+c.getClass());
+		
+	}
+
+}

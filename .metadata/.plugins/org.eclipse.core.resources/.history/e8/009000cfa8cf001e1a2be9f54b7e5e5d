@@ -1,0 +1,5 @@
+package com.sitech.singleton;
+
+public class Calculation {
+
+}
